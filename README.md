@@ -4,6 +4,10 @@
 and daylight saving time support. Date calculations automatically update the
 date when time operations cross a day boundary, such as when adding 24 hours.
 
+## Prerequisites
+
+    4D 21 or higher (Project mode recommended).
+
 ## Contents
 
 - `cs.DateTime`: date, time, formatting, UTC conversion, and time operations.
