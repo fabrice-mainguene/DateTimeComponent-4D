@@ -65,7 +65,7 @@ ALERT("Current DateTime: "+$dt1.toISO())
 ALERT("Is Daylight Saving Time: "+String($dt1.isDaylightSavingTime))
 ALERT("Is leap year: "+String($dt1.IsLeapYear))
 
-// Create a DateTime object with specific date and time
+// Create a DateTime object with specific date and time and timezone
 var $myDate:=!2025-11-05!
 var $myTime:=?14:30:15?
 var $dt2:=cs.DateTime.new($myDate; $myTime; cs.TimeZone.new("Europe/Paris"))
