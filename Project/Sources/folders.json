@@ -1,0 +1,19 @@
+{
+	"DateTime": {
+		"methods": [
+			"TestDateTime"
+		],
+		"classes": [
+			"DateTime"
+		]
+	},
+	"TimeZone": {
+		"methods": [
+			"TestTimeZone"
+		],
+		"classes": [
+			"TimeZone"
+		]
+	},
+	"trash": {}
+}
