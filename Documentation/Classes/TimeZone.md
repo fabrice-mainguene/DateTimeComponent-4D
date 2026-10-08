@@ -48,11 +48,8 @@ var $utc : cs.DateTime := $zone.toUTC($date; $time)
 
 ## Daylight-saving calculation
 
-The current implementation treats the interval from the last Sunday in March (inclusive) to the last Sunday in October (exclusive) as daylight time for every date passed to `getOffset`. It does not use region-specific transition rules, historical data, or transition times within a day. It can therefore produce incorrect results for zones that do not follow this schedule, including many southern-hemisphere zones. For exact regional conversions, use a time-zone library or service with an up-to-date IANA time-zone database.
+The selected zone's standard-time (`SDT`) and daylight-saving (`DST`) offsets are read from its entry in `Resources/TimeZone.json`. `getOffset($date)` chooses between those two zone-specific values according to whether the date falls within the daylight-saving period.
+
+The current implementation identifies the daylight-saving period as starting on the last Sunday in March (inclusive) and ending on the last Sunday in October (exclusive). The offsets vary by selected zone, while this transition-date rule is shared by all zones; the JSON file does not supply per-zone transition dates or historical transition rules.
 
 System time-zone detection is implemented only for Windows and macOS. On other platforms, or if detection does not find a mapping, `current` falls back to UTC.
-
-## Internal helpers
-
-Methods prefixed with `_` (`_get`, `_searchTimeZone`, `_loadTimeZones`, and `_isDST`) are implementation details and are not intended as public API.
-
